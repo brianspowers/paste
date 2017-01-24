@@ -1,19 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { IndexLink } from 'react-router';
+
 import './App.scss';
 
 export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        {this.props.children}
+        <nav className="nav hero is-default has-shadow" id="top">
+          <div className="container">
+            <div className="nav-left">
+              <IndexLink className="nav-item" to="/">
+                <span className="siteHeader"><strong>PowersPaste</strong></span>
+              </IndexLink>
+            </div>
+          </div>
+        </nav>
+
+        <section className="section">    
+          <div className="container">
+            {this.props.children}
+          </div>
+        </section>
+
+        <footer className="footer">
+          <div className="container">
+            <div className="content has-text-centered">
+              <p>
+                <strong>PowersPaste</strong> by Brian Powers. 
+              </p>
+              <p>
+                <a className="icon" href="https://github.com/brianspowers">
+                  <i className="fa fa-github" />
+                </a>
+              </p>
+            </div>
+          </div>
+        </footer>
       </div>
     );
   }
