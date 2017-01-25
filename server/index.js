@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const path = require('path');
 const Hashids = require('hashids');
 const bodyParser = require('body-parser')
 const hashIds = new Hashids('seed');
@@ -11,7 +12,7 @@ const jsonParser = bodyParser.json()
 
 let db;
 
-app.set('port', 3001);
+app.set('port', (process.env.PORT || 3001));
 
 app.get('/api/paste/:token', (req, res) => {
   if (!req.params.token) return res.sendStatus(400);
@@ -52,6 +53,11 @@ app.delete('/api/paste/:token', (req, res) => {
   .catch(err => {
     return res.sendStatus(500);
   })
+});
+
+app.use(express.static('./client/build'));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, './../client/build', 'index.html'));
 });
 
 function shredPaste(token, callback) {
