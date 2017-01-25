@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './Paste.scss';
+import './style.scss';
 
 export default class Paste extends Component {
   
@@ -93,8 +93,8 @@ export default class Paste extends Component {
     }
     
     return (
-      <div className="columns">
-        <div className="column is-three-quarters">
+      <div className="paste columns">
+        <div className="column is-three-quarters ">
           <div className="box">
             {this.state.message}
           </div>

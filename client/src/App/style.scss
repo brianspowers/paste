@@ -1,16 +1,34 @@
 @import '~bulma/sass/utilities/variables';
 
-html {
-    background-color: $background;
-}
-
 body {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+html, body, #root {
+  height: 100%;
 }
 
 .siteHeader {
   font-size: 24px;
 }
+
 .nav.is-default {
   background-color: $background;
+}
+
+.App {
+  position: relative;
+  min-height:100%;
+}
+
+.mainContent {
+  padding-bottom: 188px;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  height: 140px;
+  bottom: 0;
+  left: 0;
 }

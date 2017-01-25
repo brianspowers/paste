@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { IndexLink } from 'react-router';
 
-import './App.scss';
+import './style.scss';
 
 export default class App extends Component {
   render() {
@@ -17,7 +17,7 @@ export default class App extends Component {
           </div>
         </nav>
 
-        <section className="section">    
+        <section className="section mainContent">    
           <div className="container">
             {this.props.children}
           </div>
