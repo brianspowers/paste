@@ -6,7 +6,7 @@ const IV_LENGTH = 16;
 
 function encrypt(text) {
   let iv = crypto.randomBytes(IV_LENGTH);
-  let cipher = crypto.createCipheriv(ALGORITHM, new Buffer(ENCRYPTION_KEY), iv);
+  let cipher = crypto.createCipheriv(ALGORITHM, Buffer.from(ENCRYPTION_KEY), iv);
   let encrypted = cipher.update(text);
 
   encrypted = Buffer.concat([encrypted, cipher.final()]);
@@ -16,11 +16,11 @@ function encrypt(text) {
 
 function decrypt(text) {
   let textParts = text.split(':');
-  let iv = new Buffer(textParts.shift(), 'hex');
-  let encryptedText = new Buffer(textParts.join(':'), 'hex');
+  let iv = Buffer.from(textParts.shift(), 'hex');
+  let encryptedText = Buffer.from(textParts.join(':'), 'hex');
   let decipher = crypto.createDecipheriv(
     ALGORITHM,
-    new Buffer(ENCRYPTION_KEY),
+    Buffer.from(ENCRYPTION_KEY),
     iv
   );
   let decrypted = decipher.update(encryptedText);

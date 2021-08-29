@@ -1,5 +1,9 @@
-.paste {    
+.paste {
   .box {
     white-space: pre-line;
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 }
