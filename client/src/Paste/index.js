@@ -15,9 +15,9 @@ export default class Paste extends Component {
   };
 
   componentDidMount() {
-    if (this.props.params.token) {
+    if (this.props.match.params.token) {
       this.setState({ loading: true });
-      fetch(`/api/paste/${this.props.params.token}`)
+      fetch(`/api/paste/${this.props.match.params.token}`)
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -47,7 +47,7 @@ export default class Paste extends Component {
   }
 
   handleShredClick() {
-    fetch(`/api/paste/${this.props.params.token}`, {
+    fetch(`/api/paste/${this.props.match.params.token}`, {
       method: 'DELETE',
     })
       .then((response) => {
@@ -57,7 +57,7 @@ export default class Paste extends Component {
         throw new Error('Network response was not ok.');
       })
       .then(() => {
-        this.props.router.push('/');
+        this.props.history.push('/');
       })
       .catch((error) => {
         console.log(

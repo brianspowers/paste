@@ -36,7 +36,7 @@ export default class Home extends Component {
       throw new Error('Network response was not ok.');
     })
     .then(jsonResponse => {
-      this.props.router.push(`/${jsonResponse.token}`);
+      this.props.history.push(`/${jsonResponse.token}`);
     })
     .catch(error => {
       console.log('There has been a problem with your fetch operation: ' + error.message);

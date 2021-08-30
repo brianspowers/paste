@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IndexLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 import './style.scss';
 
@@ -10,9 +10,9 @@ export default class App extends Component {
         <nav className="nav hero is-default has-shadow" id="top">
           <div className="container">
             <div className="nav-left">
-              <IndexLink className="nav-item" to="/">
+              <NavLink className="nav-item" to="/">
                 <span className="siteHeader"><strong>PowersPaste</strong></span>
-              </IndexLink>
+              </NavLink>
             </div>
           </div>
         </nav>
