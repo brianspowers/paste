@@ -75,8 +75,8 @@ function shredPaste(token, callback) {
 let server;
 const url = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}?ssl=true&replicaSet=${process.env.DB_REPLICA_SET}&authSource=admin&retryWrites=true&w=majority`
 mongodb.MongoClient.connect(url)
-  .then(database => {
-    db = database;
+  .then(client => {
+    db = client.db(process.env.DB_NAME);
     server = app.listen(app.get('port'), () => {
       console.log(`Find the server at: http://localhost:${app.get('port')}/`);
     });
