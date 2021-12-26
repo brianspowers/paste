@@ -20,7 +20,7 @@ export default class Home extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch('/api/paste', {
+    fetch('/.netlify/functions/paste', {
 	    method: 'POST',
       headers: {
         'Content-Type': 'application/json'
