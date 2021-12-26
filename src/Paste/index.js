@@ -17,7 +17,7 @@ export default class Paste extends Component {
   componentDidMount() {
     if (this.props.match.params.token) {
       this.setState({ loading: true });
-      fetch(`/api/paste/${this.props.match.params.token}`)
+      fetch(`/.netlify/functions/paste?id=${this.props.match.params.token}`)
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -47,7 +47,7 @@ export default class Paste extends Component {
   }
 
   handleShredClick() {
-    fetch(`/api/paste/${this.props.match.params.token}`, {
+    fetch(`/.netlify/functions/paste?id=${this.props.match.params.token}`, {
       method: 'DELETE',
     })
       .then((response) => {
