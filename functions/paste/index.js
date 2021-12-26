@@ -83,7 +83,7 @@ async function deletePaste(db, pasteId) {
   if (!pasteId) return { statusCode: 400 };
   try {
     var collection = db.collection('documents');
-    await collection.deleteOne({ pasteId });
+    await collection.deleteOne({ token: pasteId });
     return { statusCode: 200 };
   } catch (err) {
     console.error(err);
